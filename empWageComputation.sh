@@ -28,3 +28,24 @@ echo "Employee Daily Wage is:$DailyWage"
 
 PartTimeWage=$(($isPartTime*$EmpRate))
 echo "Employee Daily Wage for part time employee is: $PartTimeWage"
+
+
+# Solving using Switch Case Statement
+
+empcheck=$((RANDOM%3))
+
+case $empcheck in
+	1)
+		empHrs=$IsFullTime
+		;;
+	2)
+		empHrs=$isPartTime
+		;;
+	*)
+		empHrs=0
+		;;
+esac
+
+Wage=$((empHrs*$EmpRate))
+echo "Total Wage is: $Wage"
+
