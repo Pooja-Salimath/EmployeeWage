@@ -11,7 +11,7 @@ isPartTime=4
 EmpRate=20
 RatePerMonth=20
 
-# Random Chec Employee is Present or Absent
+# Random Check Employee is Present or Absent
 
 if [ $randomcheck == 0 ]
 then
@@ -20,7 +20,6 @@ else
 	echo  "Employee is Present"
 
 	# Calculating the Employee Wage
-
 	DailyWage=$(($IsFullTime*$EmpRate))
 	echo "Daily Wage for Full Time is:$DailyWage"
 
@@ -54,7 +53,7 @@ else
 	WagePerMonth=$(($Wage*$RatePerMonth))
 	echo "Monthly Wage for Employee:$WagePerMonth"
 
-	# Calculate Wages till a condition of total	working hours or	days is reached for	a month - Assume 100 hours
+	# Calculate Wages till a condition of totalWorking hours or	days is reached for a month - Assume 100 hours
 
 	TotalWorkHours=0
 	WorkingDays=0
@@ -79,3 +78,18 @@ else
 	  done
 	  echo "Monthly Wage is:$WagePerMonth"
 fi
+
+# Refactor the Code to write a function to get work hours
+
+function EmployeeHrs()
+{
+	randomcheck=$((RANDOM%2))
+	if [ $randomcheck == 0 ]
+	then
+   	echo "Employees is Absent"
+	else
+   	echo  "Employee is Present"
+	fi
+}
+EmpCheck="$(EmployeeHrs)"
+echo "Employee Status:$EmpCheck"
