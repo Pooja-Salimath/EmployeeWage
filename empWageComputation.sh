@@ -7,6 +7,7 @@ randomcheck=$((RANDOM%2))
 
 
 IsFullTime=8
+isPartTime=4
 EmpRate=20
 
 # Random Chec Employee is Present or Absent
@@ -18,7 +19,12 @@ else
 	echo  "Employee is Present"
 fi
 
-# Calulating the Employee Wage
+# Calculating the Employee Wage
 
 DailyWage=$(($IsFullTime*$EmpRate))
 echo "Employee Daily Wage is:$DailyWage"
+
+# Calculating the Employee Wage for PartTime Employee
+
+PartTimeWage=$(($isPartTime*$EmpRate))
+echo "Employee Daily Wage for part time employee is: $PartTimeWage"
