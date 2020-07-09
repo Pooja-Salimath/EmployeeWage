@@ -1,10 +1,8 @@
 #!/bin/bash -x
 
-
 echo "------Welcome to EmployeeWageComputation-----" 
 
 randomcheck=$((RANDOM%2))
-
 
 IsFullTime=8
 isPartTime=4
@@ -93,3 +91,29 @@ function EmployeeHrs()
 }
 EmpCheck="$(EmployeeHrs)"
 echo "Employee Status:$EmpCheck"
+
+# Store the Daily wage along Total Wage
+	TotalWorkHours=0
+   WorkingDays=0
+   TotalMonthwage=0
+   while [[ $TotalWorkHours -le 100 || $WorkingDays -le 20 ]]
+   do
+       case $empcheck in
+      1)
+         empHrs=$IsFullTime
+         ;;
+      2)
+         empHrs=$isPartTime
+         ;;
+      *)empHrs=0
+         ;;
+    esac
+
+     Wage=$((empHrs*$EmpRate))
+     WagePerMonth=$(($Wage*$RatePerMonth))
+     TotalWorkHours=$((TotalWorkHours+empHrs))
+     WorkingDays=$((WorkingDays+1))
+   done
+
+echo "Total Wage is: $Wage"
+echo "Monthly Wage is:$WagePerMonth"
